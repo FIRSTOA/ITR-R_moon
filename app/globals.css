@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background: #f1f5f9;
+  background: #f3f5f9;
   color: #0f172a;
   font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
 }
