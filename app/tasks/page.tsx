@@ -1,7 +1,7 @@
-import { loadRows } from "@/lib/supabase";
-import { toTasks } from "@/lib/analyze";
-import { ErrorBox, PageTitle } from "@/components/ui";
-import TaskTable from "@/components/TaskTable";
+import { loadRows } from "../../lib/supabase";
+import { toTasks } from "../../lib/analyze";
+import { ErrorBox, PageTitle } from "../../components/ui";
+import TaskTable from "../../components/TaskTable";
 
 export const dynamic = "force-dynamic";
 

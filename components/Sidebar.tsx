@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 
 const MENUS = [
   { href: "/", label: "대시보드", icon: "📊" },
+  { href: "/calendar", label: "캘린더", icon: "📅" },
+  { href: "/work", label: "업무분장", icon: "🗂️" },
   { href: "/tasks", label: "업무 목록", icon: "📋" },
   { href: "/assign", label: "업무 분배", icon: "👥" },
   { href: "/checklist", label: "체크리스트", icon: "✅" },

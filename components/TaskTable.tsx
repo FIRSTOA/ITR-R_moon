@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Task } from "@/lib/analyze";
+import type { Task } from "../lib/analyze";
 import { MethodBadge, StatusBadge } from "./ui";
 
 export default function TaskTable({ tasks }: { tasks: Task[] }) {

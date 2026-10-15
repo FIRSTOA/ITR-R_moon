@@ -1,10 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "../components/Sidebar";
 
 export const metadata: Metadata = {
   title: "IT AS 관리",
-  description: "퍼스트전산 IT AS 접수·분배·체크리스트",
+  description: "퍼스트전산 IT AS 접수·분배·캘린더·업무분장",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

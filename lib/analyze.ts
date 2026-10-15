@@ -1,19 +1,21 @@
 import type { Row } from "./supabase";
+import { parseYmd } from "./date";
 
 export type Status = "신규" | "처리 중" | "완료";
 export type Method = "원격" | "방문" | "미분류";
 
 export type Task = {
   id: number;
-  no: string;        // 순
-  date: string;      // 접수일
-  company: string;   // 상호
-  location: string;  // 지역
-  item: string;      // 품목
-  symptom: string;   // 증상
-  detail: string;    // 처리내용
-  handler: string;   // 처리자
-  receiver: string;  // 접수자
+  no: string;         // 순
+  date: string;       // 접수일 (시트 원문)
+  ymd: string | null; // 접수일을 YYYY-MM-DD 로 바꾼 값
+  company: string;    // 상호
+  location: string;   // 지역
+  item: string;       // 품목
+  symptom: string;    // 증상
+  detail: string;     // 처리내용
+  handler: string;    // 처리자
+  receiver: string;   // 접수자
   status: Status;
   method: Method;
 };
@@ -51,6 +53,7 @@ export function toTask(r: Row): Task {
     id: r.id,
     no: s(r, "순"),
     date: s(r, "접수일"),
+    ymd: parseYmd(s(r, "접수일")),
     company: s(r, "상호"),
     location: s(r, "지역"),
     item: s(r, "품목") || s(r, "기종") || "기타",

@@ -1,11 +1,12 @@
 import { createClient } from "@supabase/supabase-js";
+import { toWork, type Work } from "./work";
 
 export type Row = { id: number; [key: string]: string | number | null };
 
 // 테이블 이름 (Supabase에 만든 이름과 같아야 합니다)
 const TABLE_NAME = "IT_AS";
 
-function getSupabase() {
+export function getSupabase() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
   if (!url || !key) {
@@ -40,5 +41,19 @@ export async function loadRows(): Promise<{ rows: Row[]; error: string | null }>
     return { rows: await fetchAllRows(), error: null };
   } catch (e) {
     return { rows: [], error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+export async function loadWork(): Promise<{ works: Work[]; error: string | null }> {
+  try {
+    const { data, error } = await getSupabase()
+      .from("IT_AS_WORK")
+      .select("*")
+      .order("work_date", { ascending: true })
+      .order("start_time", { ascending: true });
+    if (error) throw new Error(error.message);
+    return { works: ((data ?? []) as Record<string, unknown>[]).map(toWork), error: null };
+  } catch (e) {
+    return { works: [], error: e instanceof Error ? e.message : String(e) };
   }
 }

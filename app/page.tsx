@@ -1,6 +1,6 @@
-import { loadRows } from "@/lib/supabase";
-import { handlerStats, summary, toTasks } from "@/lib/analyze";
-import { Card, ErrorBox, Kpi, MethodBadge, PageTitle, StatusBadge } from "@/components/ui";
+import { loadRows } from "../lib/supabase";
+import { handlerStats, summary, toTasks } from "../lib/analyze";
+import { Card, ErrorBox, Kpi, MethodBadge, PageTitle, StatusBadge } from "../components/ui";
 
 export const dynamic = "force-dynamic";
 

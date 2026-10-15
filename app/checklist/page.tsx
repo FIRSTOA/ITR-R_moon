@@ -1,6 +1,6 @@
-import { loadRows } from "@/lib/supabase";
-import { buildChecklists, toTasks } from "@/lib/analyze";
-import { Card, ErrorBox, PageTitle } from "@/components/ui";
+import { loadRows } from "../../lib/supabase";
+import { buildChecklists, toTasks } from "../../lib/analyze";
+import { Card, ErrorBox, PageTitle } from "../../components/ui";
 
 export const dynamic = "force-dynamic";
 
