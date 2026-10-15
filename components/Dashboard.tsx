@@ -24,16 +24,15 @@ export default function Dashboard() {
     setToday(`${n.getFullYear()}-${p(n.getMonth() + 1)}-${p(n.getDate())} (${WEEK[n.getDay()]})`);
   }, []);
 
+  const donutTotal = DONUT.reduce((s, d) => s + d.n, 0);
   const donutGradient = (() => {
-    const total = DONUT.reduce((s, d) => s + d.n, 0);
     let acc = 0;
     return DONUT.map((d) => {
-      const from = (acc / total) * 100;
+      const from = (acc / donutTotal) * 100;
       acc += d.n;
-      return `${d.color} ${from}% ${(acc / total) * 100}%`;
+      return `${d.color} ${from}% ${(acc / donutTotal) * 100}%`;
     }).join(", ");
   })();
-  const donutTotal = DONUT.reduce((s, d) => s + d.n, 0);
   const barMax = Math.max(...STATUS_BARS.map((b) => b.value));
 
   return (
